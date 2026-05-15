@@ -1,0 +1,2 @@
+$ curl -s -X DELETE http://localhost:5001/customer/auth/review/3 -b /tmp/session.txt
+{"message":"Review deleted successfully.","reviews":{}}
