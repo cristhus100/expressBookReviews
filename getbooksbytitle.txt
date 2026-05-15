@@ -1,10 +1,9 @@
-$ curl -s "http://localhost:5001/title/Pride"
+$ curl -s "http://localhost:5001/title/Pride and Prejudice"
 {
-  "8": {
-    "author": "Jane Austen",
-    "title": "Pride and Prejudice",
-    "reviews": {}
-  }
+    "8": {
+        "author": "Jane Austen",
+        "title": "Pride and Prejudice",
+        "reviews": {}
+    }
 }
-
 

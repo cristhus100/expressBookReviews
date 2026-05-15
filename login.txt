@@ -1,2 +1,2 @@
-$ curl -s -X POST http://localhost:5001/customer/login -H "Content-Type: application/json" -c /tmp/session2.txt -d "{\"username\":\"cristhian\",\"password\":\"secret123\"}"
-{"message":"Login successful.","token":"eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VybmFtZSI6ImNyaXN0aGlhbiIsImlhdCI6MTc3ODgwNTY4NiwiZXhwIjoxNzc4ODkyMDg2fQ.07NghhgPLeI72jIudF-ofnYvIW-3cdBml5Xxl_BRmD4"}
+$ curl -s -X POST http://localhost:5001/customer/login -H "Content-Type: application/json" -c /tmp/sess.txt -d "{\"username\":\"cristhian\",\"password\":\"secret123\"}"
+{"message":"Login successful.","token":"eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VybmFtZSI6ImNyaXN0aGlhbiIsImlhdCI6MTc3ODgwNjUyOSwiZXhwIjoxNzc4ODkyOTI5fQ.HyOcJvtAFvM82K6LCpZhX7fWrbmd9dmFGMXpxozM638"}

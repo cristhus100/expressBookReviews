@@ -1,2 +1,2 @@
-$ curl -s -X PUT http://localhost:5001/customer/auth/review/3 -H "Content-Type: application/json" -b /tmp/session2.txt -d "{\"review\":\"Excelente libro!\",\"rating\":5}"
-{"message":"Review added/updated successfully.","reviews":{"cristhian":{"review":"Excelente libro!","rating":5}}}
+$ curl -s -X PUT http://localhost:5001/customer/auth/review/3 -H "Content-Type: application/json" -b /tmp/sess.txt -d "{\"review\":\"Great book!\",\"rating\":5}"
+{"message":"Review added/updated successfully.","reviews":{"cristhian":{"review":"Great book!","rating":5}}}

@@ -1,8 +1,7 @@
 $ curl -s http://localhost:5001/isbn/1
 {
-  "author": "Chinua Achebe",
-  "title": "Things Fall Apart",
-  "reviews": {}
+    "author": "Chinua Achebe",
+    "title": "Things Fall Apart",
+    "reviews": {}
 }
-
 

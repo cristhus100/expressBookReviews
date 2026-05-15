@@ -1,4 +1,5 @@
 const express = require('express');
+const jwt = require('jsonwebtoken');
 const axios = require('axios');
 let books = require("./booksdb.js");
 let isValid = require("./auth_users.js").isValid;
@@ -137,6 +138,38 @@ public_users.get('/review/:isbn', async function (req, res) {
   try {
     const reviews = await getReviewsByISBN(req.params.isbn);
     return res.status(200).send(JSON.stringify(reviews, null, 2));
+  } catch (err) {
+    return res.status(404).json({ message: err.message });
+  }
+});
+
+// Delete a book review (using JWT from Authorization header)
+public_users.delete('/review/:isbn', async function (req, res) {
+  try {
+    // Verify JWT from Authorization header
+    const authHeader = req.headers.authorization;
+    if (!authHeader || !authHeader.startsWith('Bearer ')) {
+      return res.status(403).json({ message: "Access denied. No token provided." });
+    }
+
+    const token = authHeader.split(' ')[1];
+    let decoded;
+    try {
+      decoded = jwt.verify(token, "fingerprint_customer");
+    } catch (err) {
+      return res.status(403).json({ message: "Invalid token. Please login again." });
+    }
+
+    const isbn = req.params.isbn;
+    const book = await getBookByISBN(isbn);
+    const username = decoded.username;
+
+    if (!book.reviews[username]) {
+      return res.status(404).json({ message: "No review found for this user." });
+    }
+
+    delete book.reviews[username];
+    return res.status(200).json({ message: `Review for ISBN ${isbn} deleted` });
   } catch (err) {
     return res.status(404).json({ message: err.message });
   }
